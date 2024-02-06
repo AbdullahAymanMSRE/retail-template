@@ -5,7 +5,6 @@
 .page {
   min-height: 100vh;
   &.hero {
-    padding-bottom: variables.$nav-height;
     background: colors.$light-blue;
     position: relative;
     @include mixins.flex($just: space-between);
@@ -79,6 +78,7 @@
   .page {
     min-height: 100vh;
     &.hero {
+      padding-bottom: variables.$nav-height;
       flex-direction: column-reverse;
       justify-content: center;
       gap: 30px;

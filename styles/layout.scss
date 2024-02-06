@@ -64,6 +64,8 @@
   .main-nav {
     justify-content: space-between;
     .nav-contents {
+      overflow-y: scroll;
+      box-shadow: -3px 0 5px rgba(black, 0.3);
       &.open {
         transform: translateX(0);
         opacity: 1;
