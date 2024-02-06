@@ -69,6 +69,45 @@
       }
     }
   }
+  &.locate {
+    @include mixins.flex();
+    gap: 33px;
+    $padding: 48px;
+    .item {
+      @include mixins.flex($dir: column, $just: space-between);
+      .title {
+        color: colors.$dark-blue;
+        font: {
+          size: 40px;
+          weight: bold;
+        }
+      }
+      .content {
+        color: colors.$light-gray;
+        @include mixins.flex($dir: column);
+        gap: 14px;
+      }
+      border-radius: 24px;
+      height: 611px;
+      padding: $padding {
+        bottom: 0;
+      }
+      &:first-of-type {
+        flex: 1;
+        background: colors.$light-purple;
+        > img {
+          max-width: calc(100% - $padding);
+        }
+      }
+      &:last-of-type {
+        flex: 2;
+        background: colors.$light-blue;
+        > img {
+          max-width: 100%;
+        }
+      }
+    }
+  }
 }
 
 @include mixins.mediaQuery(xl) {
@@ -117,16 +156,14 @@
             @include mixins.square(50px);
             transform: translateY(-30%);
           }
-          // &-title {
-          //   font-size: 32px;
-          // }
-          // &-text {
-          //   max-width: 410px;
-          //   font-size: 16px;
-          //   line-height: 32px;
-          // }
-          //   }
         }
+      }
+    }
+    &.locate {
+      flex-direction: column;
+      .item {
+        max-width: min(100%, 500px);
+        flex: unset !important;
       }
     }
   }
@@ -149,6 +186,13 @@
         width: 80vw;
         @include mixins.square(80vw);
         max-width: unset;
+      }
+    }
+    &.locate {
+      .item {
+        .title {
+          font-size: 30px;
+        }
       }
     }
   }
