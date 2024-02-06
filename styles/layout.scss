@@ -1,0 +1,136 @@
+@use "./helper/mixins";
+@use "./helper/colors";
+@use "./helper/variables";
+
+.main-nav {
+  @include mixins.flex($just: flex-start);
+  padding: 11px 23px;
+  color: colors.$gray;
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  background: white;
+  z-index: 10;
+  gap: 42px;
+  height: variables.$nav-height;
+  .nav-contents {
+    flex: 1;
+
+    @include mixins.flex($just: space-between);
+    .close-btn {
+      display: none;
+    }
+  }
+  .links {
+    @include mixins.flex($just: flex-start);
+
+    ul {
+      list-style: none;
+      @include mixins.flex();
+      gap: 24px;
+      a {
+        text-decoration: none;
+        color: colors.$gray;
+      }
+    }
+  }
+  .btns {
+    @include mixins.flex();
+    gap: 24px;
+    > div {
+      @include mixins.flex();
+
+      gap: 16px;
+    }
+  }
+}
+
+.btn {
+  &.deflated {
+    @include mixins.button($template: deflated);
+  }
+  &:not(.deflated) {
+    @include mixins.button();
+  }
+}
+
+.page {
+  min-height: 100vh;
+  padding-top: variables.$nav-height;
+}
+
+@include mixins.mediaQuery(lg) {
+  .main-nav {
+    justify-content: space-between;
+    .nav-contents {
+      &.open {
+        transform: translateX(0);
+        opacity: 1;
+      }
+      transition: 0.5s;
+      position: fixed;
+      right: 0;
+      top: 0;
+      height: 100vh;
+      flex-direction: column;
+      transform: translateX(100%);
+      opacity: 0;
+      background: white;
+      padding: 50px 20px;
+      .close-btn {
+        cursor: pointer;
+        display: block;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        color: colors.$primary;
+      }
+      .links {
+        flex: 1;
+        &,
+        ul {
+          flex-direction: column;
+          width: 100%;
+        }
+        ul {
+          align-items: flex-start;
+          gap: 0;
+          li {
+            text-align: left;
+            width: 100%;
+            a {
+              width: 100%;
+              display: inline-block;
+              padding: 20px 0;
+            }
+            &:not(:last-child) {
+              border-bottom: 1px solid colors.$black;
+            }
+          }
+        }
+      }
+      .btns {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+    .burger {
+      @include mixins.flex($dir: column);
+      cursor: pointer;
+      gap: 3px;
+      div {
+        height: 3px;
+        width: 30px;
+        background: colors.$primary;
+        border-radius: 5px;
+      }
+    }
+  }
+}
+
+@include mixins.mediaQuery(md) {
+  .btn {
+    font-size: 14px !important;
+  }
+}

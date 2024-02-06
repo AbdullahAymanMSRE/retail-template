@@ -1,0 +1,33 @@
+@use "./helper/colors";
+
+// Fonts
+@font-face {
+  font-family: "Sofia Pro";
+  src: local("Sofia Pro Regular"), local("Sofia-Pro-Regular"),
+    url("../assets/fonts/SofiaProRegular/SofiaProRegular.woff2") format("woff2"),
+    url("../assets/fonts/SofiaProRegular/SofiaProRegular.woff") format("woff"),
+    url("../assets/fonts/SofiaProRegular/SofiaProRegular.ttf")
+      format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Sofia Pro";
+  src: local("Sofia Pro Bold"), local("Sofia-Pro-Bold"),
+    url("../assets/fonts/SofiaProBold/SofiaProBold.woff2") format("woff2"),
+    url("../assets/fonts/SofiaProBold/SofiaProBold.woff") format("woff"),
+    url("../assets/fonts/SofiaProBold/SofiaProBold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Sofia Pro";
+}
+
+body {
+  background: colors.$background;
+}

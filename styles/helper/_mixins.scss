@@ -1,0 +1,70 @@
+@use "./colors";
+@use "./variables";
+
+@mixin button(
+  $color: white,
+  $background: colors.$primary,
+  $border: colors.$primary,
+  $template: none
+) {
+  @if ($template == deflated) {
+    $color: colors.$black;
+    $background: transparent;
+    $border: colors.$black;
+  }
+  padding: 10px 17px;
+  border: 2px solid $border;
+  border-radius: 12px;
+  background: $background;
+  color: $color;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+@mixin flex($dir: row, $just: center, $align: center) {
+  display: flex;
+  flex-direction: $dir;
+  align-items: $align;
+  justify-content: $just;
+}
+
+$side-margin: lg variables.$side-margin-lg, md variables.$side-margin-md,
+  sm variables.$side-margin-sm;
+@mixin side-margin($size) {
+  @each $name, $width in $side-margin {
+    @if ($size == $name) {
+      padding-left: $width;
+      padding-right: $width;
+    }
+  }
+}
+
+$sizes: xs 480, sm 576, md 768, lg 1162, xl 1400;
+@mixin mediaQuery($size) {
+  @each $name, $width in $sizes {
+    @if $size == $name {
+      @media screen and (max-width: #{$width}px) {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin heading-text() {
+  background: linear-gradient(90deg, #4ac7fa 0%, #e649f5 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 64px;
+}
+
+@mixin square($l, $strict: false) {
+  width: $l;
+  height: $l;
+  @if ($strict) {
+    min-width: $l;
+    min-height: $l;
+  }
+}
