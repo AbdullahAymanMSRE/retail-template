@@ -58,8 +58,14 @@
 .page {
   min-height: 100vh;
   padding-top: variables.$nav-height;
+  @include mixins.side-margin(lg);
 }
 
+@include mixins.mediaQuery(xl) {
+  .page {
+    @include mixins.side-margin(md);
+  }
+}
 @include mixins.mediaQuery(lg) {
   .main-nav {
     justify-content: space-between;
@@ -128,6 +134,9 @@
         border-radius: 5px;
       }
     }
+  }
+  .page {
+    @include mixins.side-margin(sm);
   }
 }
 

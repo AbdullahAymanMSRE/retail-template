@@ -35,7 +35,38 @@
       //   right: 40px;
       //   bottom: 65px;
       max-width: 40vw;
-      margin-right: -117px;
+      margin-right: calc(40px - variables.$side-margin-lg);
+    }
+  }
+  &.adv {
+    @include mixins.flex();
+    .main {
+      @include mixins.flex($just: space-between);
+      flex: 1;
+      // gap: 22px;
+      > img {
+        margin-right: calc(40px - variables.$side-margin-lg);
+        max-width: 50vw;
+      }
+    }
+    .adv-list {
+      @include mixins.flex($dir: column);
+      gap: 57px;
+    }
+    .advantage {
+      @include mixins.flex($align: flex-start);
+      gap: 16px;
+      img {
+        transform: translateY(-30%);
+      }
+      &-title {
+        font-size: 32px;
+      }
+      &-text {
+        max-width: 410px;
+        font-size: 16px;
+        line-height: 32px;
+      }
     }
   }
 }
@@ -69,6 +100,33 @@
       }
       .hero-image {
         margin-right: calc(40px - variables.$side-margin-sm);
+      }
+    }
+    &.adv {
+      .main {
+        flex-direction: column-reverse;
+        justify-content: center;
+        gap: 50px;
+        > img {
+          margin-right: 0;
+          max-width: unset;
+          @include mixins.square(80vw);
+        }
+        .advantage {
+          img {
+            @include mixins.square(50px);
+            transform: translateY(-30%);
+          }
+          // &-title {
+          //   font-size: 32px;
+          // }
+          // &-text {
+          //   max-width: 410px;
+          //   font-size: 16px;
+          //   line-height: 32px;
+          // }
+          //   }
+        }
       }
     }
   }
