@@ -117,6 +117,7 @@
   &.operations {
     @include mixins.flex($dir: column, $align: stretch);
     gap: 75px;
+    min-height: unset;
     header {
       .title {
         font: {
@@ -147,6 +148,28 @@
         color: colors.$gray;
       }
       gap: 20px;
+    }
+  }
+  &.companies {
+    @include mixins.flex($dir: column, $align: flex-start);
+    .title {
+      font: {
+        size: 48px;
+        weight: bold;
+      }
+    }
+    .company-list {
+      margin-top: 42px;
+      @include mixins.flex($just: center);
+      gap: 24px;
+      flex-wrap: wrap;
+      .img-back {
+        @include mixins.flex();
+        width: 205px;
+        height: 110px;
+        border-radius: 12px;
+        background: white;
+      }
     }
   }
 }
