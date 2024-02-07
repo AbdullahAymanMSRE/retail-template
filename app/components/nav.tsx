@@ -9,27 +9,27 @@ export default function Nav() {
   const links = [
     {
       name: "Features",
-      href: "/features",
+      href: "/",
     },
     {
       name: "Solutions",
-      href: "/solutions",
+      href: "/",
     },
     {
       name: "Pricing",
-      href: "/pricing",
+      href: "/",
     },
     {
       name: "Token",
-      href: "/token",
+      href: "/",
     },
     {
       name: "Developer",
-      href: "/developers",
+      href: "/",
     },
     {
       name: "Resource",
-      href: "/resource",
+      href: "/",
     },
   ];
 

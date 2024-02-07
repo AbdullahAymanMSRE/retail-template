@@ -2,6 +2,7 @@ import "../styles/layout.scss";
 import "../styles/main.scss";
 import type { Metadata } from "next";
 import Nav from "@/app/components/nav";
+import Footer from "@/app/components/footer";
 
 export const metadata: Metadata = {
   title: "Retail Template",
@@ -18,6 +19,7 @@ export default function RootLayout({
       <body>
         <Nav />
         {children}
+        <Footer />
       </body>
     </html>
   );

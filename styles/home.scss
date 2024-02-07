@@ -172,6 +172,73 @@
       }
     }
   }
+  &.comments {
+    min-height: unset;
+    @include mixins.flex();
+    gap: 24px;
+    .comment {
+      background: white;
+      padding: 48px;
+      border-radius: 24px;
+      .user {
+        @include mixins.flex($just: space-between);
+        margin-top: 32px;
+      }
+      .text {
+        color: colors.$gray;
+        font-size: 18px;
+        line-height: 28px;
+      }
+      .user-info {
+        @include mixins.flex();
+        gap: 16px;
+        .name {
+          font: {
+            size: 22px;
+            weight: bold;
+          }
+        }
+        .job {
+          color: colors.$gray;
+          font-size: 14px;
+          margin-top: 5px;
+        }
+      }
+    }
+  }
+  &.elevate {
+    min-height: unset;
+    margin: 0 -70px;
+    .container {
+      padding: 30px {
+        left: 70px;
+      }
+      border-radius: 24px;
+      @include mixins.flex($just: space-between);
+      background: colors.$light-blue;
+      > img {
+        max-width: 60%;
+      }
+    }
+    .content {
+      @include mixins.flex($dir: column, $align: flex-start);
+      gap: 30px;
+    }
+    .title {
+      font: {
+        size: 48px;
+        weight: bold;
+      }
+      line-height: 50px;
+    }
+    .text {
+      color: colors.$gray;
+      line-height: 28px;
+    }
+    .btn:first-of-type {
+      margin-right: 25px;
+    }
+  }
 }
 
 @include mixins.mediaQuery(xl) {
@@ -231,6 +298,18 @@
         flex: unset !important;
       }
     }
+    &.comments {
+      flex-direction: column;
+    }
+    &.elevate {
+      min-width: 100%;
+      padding-left: 0;
+      padding-right: 0;
+      margin: 0;
+      .container {
+        border-radius: 0;
+      }
+    }
   }
 }
 
@@ -263,6 +342,34 @@
     &.operations {
       .items {
         flex-direction: column;
+      }
+    }
+    &.elevate {
+      .container {
+        flex-direction: column-reverse;
+        > img {
+          @include mixins.square(100%, true);
+          margin-bottom: 30px;
+        }
+      }
+    }
+  }
+}
+
+@include mixins.mediaQuery(sm) {
+  .page {
+    &.comments {
+      .comment {
+        .user {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
+        }
+        .user-info {
+          img {
+            @include mixins.square(50px);
+          }
+        }
       }
     }
   }

@@ -5,6 +5,8 @@ import Advantages from "./components/advantages";
 import Locate from "./components/locate";
 import Operations from "./components/operations";
 import Companies from "./components/companies";
+import Comments from "./components/comments";
+import Elevate from "./components/elevate";
 
 export default function Home() {
   return (
@@ -14,6 +16,8 @@ export default function Home() {
       <Locate />
       <Operations />
       <Companies />
+      <Comments />
+      <Elevate />
     </main>
   );
 }
