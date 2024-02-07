@@ -3,6 +3,7 @@ import Image from "next/image";
 import Hero from "@/app/components/hero";
 import Advantages from "./components/advantages";
 import Locate from "./components/locate";
+import Operations from "./components/operations";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <Hero />
       <Advantages />
       <Locate />
+      <Operations />
     </main>
   );
 }
